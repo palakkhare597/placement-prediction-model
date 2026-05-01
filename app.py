@@ -9,13 +9,14 @@ st.title("CGPA vs Package Predictor")
 
 # Load dataset
 df = pd.read_csv("placement.csv")
+df.columns = df.columns.str.strip().str.lower()
 
 st.subheader("Dataset Preview")
 st.write(df.head())
 
 # Features and target
-X = df[['CGPA']]
-y = df['Package']
+X = df[['cgpa']]
+y = df['package']
 
 # Train model
 model = LinearRegression()
